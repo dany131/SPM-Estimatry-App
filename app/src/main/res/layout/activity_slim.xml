@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".estimation_techniques.Slim">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_slim"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="#ffba60"
+        app:popupTheme="@style/PopupOverlay" />
+
+    <TextView
+        android:id="@+id/slim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_slim"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Software Lifecycle Management"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="23sp" />
+
+    <View
+        android:id="@+id/slimview"
+        android:layout_width="300dp"
+        android:layout_height="1.5dp"
+        android:layout_below="@id/slim"
+        android:layout_centerHorizontal="true"
+        android:background="@color/SilverBackground" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/slim_loc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slimview"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/slim_loc_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lines of code"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/slim_t"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slim_loc"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/slim_t_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Development time (t)"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/slim_c"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slim_t"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/slim_c_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Technology constant (c)"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/slim_calculate"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/slim_c"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Calculate" />
+
+    <View
+        android:id="@+id/slim_end_view"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_below="@+id/slim_calculate"
+        android:background="@color/SilverBackground" />
+
+    <TextView
+        android:id="@+id/slimres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/slim_end_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Result"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="23sp" />
+
+    <View
+        android:id="@+id/slimres_view"
+        android:layout_width="200dp"
+        android:layout_height="1.5dp"
+        android:layout_below="@+id/slimres"
+        android:layout_centerHorizontal="true"
+        android:background="@color/SilverBackground" />
+
+    <TextView
+        android:id="@+id/slimanswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/slimres_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Total Life Cycle Effort :"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="23sp" />
+
+</RelativeLayout>

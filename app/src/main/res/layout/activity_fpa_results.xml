@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".estimation_techniques.Fpa_caf">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_fpa_results"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="#ffba60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/PopupOverlay" />
+
+    <TextView
+        android:id="@+id/results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_fpa_results"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Results"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="28sp" />
+
+    <View
+        android:id="@+id/cafview"
+        android:layout_width="300dp"
+        android:layout_height="1.5dp"
+        android:layout_below="@+id/results"
+        android:layout_centerHorizontal="true"
+        android:background="@color/SilverBackground" />
+
+    <TextView
+        android:id="@+id/ufptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/results"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Unadjusted function point (UFP)"
+        android:textColor="@color/dashboard_subtitle"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/ufptextanswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ufptext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text=""
+        android:textColor="@color/darkTextColor"
+        android:textSize="23sp" />
+
+    <View
+        android:id="@+id/ufptextview"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_below="@+id/ufptextanswer"
+        android:background="@color/SilverBackground" />
+
+
+    <TextView
+        android:id="@+id/caftext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ufptextview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Complexity Adjustment Factor (CAF)"
+        android:textColor="@color/dashboard_subtitle"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/caftextanswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/caftext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text=""
+        android:textColor="@color/darkTextColor"
+        android:textSize="23sp" />
+
+    <View
+        android:id="@+id/caftextview"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_below="@+id/caftextanswer"
+        android:background="@color/SilverBackground" />
+
+    <TextView
+        android:id="@+id/fptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/caftextview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Functional Point (FP)"
+        android:textColor="@color/dashboard_subtitle"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/fptextanswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fptext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text=""
+        android:textColor="@color/darkTextColor"
+        android:textSize="23sp" />
+
+
+</RelativeLayout>

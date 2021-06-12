@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".estimation_techniques.Ucp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_ucpanswer"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="#ffba60"
+        app:popupTheme="@style/PopupOverlay" />
+
+    <TextView
+        android:id="@+id/ucphead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_ucpanswer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Results"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="23sp" />
+
+    <View
+        android:id="@+id/ucpheadview"
+        android:layout_width="200dp"
+        android:layout_height="1.5dp"
+        android:layout_below="@+id/ucphead"
+        android:layout_centerHorizontal="true"
+        android:background="@color/SilverBackground" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ucpbottomview"
+        android:layout_below="@+id/ucpheadview">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/uucw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Unadjusted Use Case Weight"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/ucpansview"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/uucw"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/uucw_ans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ucpansview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="UUCW: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/ucpansendview"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/uucw_ans"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/UAW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ucpansendview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Unadjusted Actor Weight"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/UAWansview"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/UAW"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/UAWans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/UAWansview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="UAW: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/UAWendview"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/UAWans"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/TCF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/UAWendview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Technical Complexity Factor"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/TCFansview"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/TCF"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/TCFans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TCFansview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="TCF: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/TCFansendview"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/TCFans"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/ECF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TCFansendview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Environmental Complexity Factor"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/ECFansview"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/ECF"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/ECFans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ECFansview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="ECF: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/ECFansendview"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/ECFans"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/UCP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ECFansendview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Use Case Points"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/UCPansview"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/UCP"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/UCPans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/UCPansview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="UCP: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <View
+                android:id="@+id/UCPansendview"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/UCPans"
+                android:layout_centerHorizontal="true"
+                android:background="@color/SilverBackground" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/ucpbottomview"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/SilverBackground" />
+
+
+</RelativeLayout>

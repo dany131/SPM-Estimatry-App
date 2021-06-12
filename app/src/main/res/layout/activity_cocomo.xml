@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".estimation_techniques.Cocomo">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_cocomo"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="#ffba60"
+        app:popupTheme="@style/PopupOverlay" />
+
+    <TextView
+        android:id="@+id/cocomo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_cocomo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Constructive Cost Model"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="23sp" />
+
+    <View
+        android:id="@+id/cocomoview"
+        android:layout_width="300dp"
+        android:layout_height="1.5dp"
+        android:layout_below="@id/cocomo"
+        android:layout_centerHorizontal="true"
+        android:background="@color/SilverBackground" />
+
+    <RadioGroup
+        android:id="@+id/radiococomo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cocomoview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_organic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:padding="10dp"
+            android:text="Organic"
+            android:textColor="@drawable/text_color" />
+
+        <RadioButton
+            android:id="@+id/radio_semi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:padding="10dp"
+            android:text="Semi Detached"
+            android:textColor="@drawable/text_color" />
+
+        <RadioButton
+            android:id="@+id/radio_embedded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:elevation="4dp"
+            android:padding="10dp"
+            android:text="Embedded"
+            android:textColor="@drawable/text_color" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/typeview"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_below="@id/radiococomo"
+        android:layout_centerHorizontal="true"
+        android:background="@color/SilverBackground" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/organic_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typeview"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/organic_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Organic"
+                android:textColor="@color/darkTextColor"
+                android:textSize="23sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/organic_kloc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/organic_text"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/organic_kloc_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="KLOC"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/organic_calculate"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@+id/organic_kloc"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Calculate" />
+
+
+            <View
+                android:id="@+id/organic_end_view"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/organic_calculate"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/organic_results"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/organic_end_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Results"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/organic_pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/organic_results"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Persons-Month:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/organic_dt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/organic_pm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Development Time:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/semi_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typeview"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/semi_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Semi Detached"
+                android:textColor="@color/darkTextColor"
+                android:textSize="23sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/semi_kloc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/semi_text"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/semi_kloc_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="KLOC"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/semi_calculate"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@+id/semi_kloc"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Calculate" />
+
+
+            <View
+                android:id="@+id/semi_end_view"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/semi_calculate"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/semi_results"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/semi_end_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Results"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/semi_pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/semi_results"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Persons-Month:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/semi_dt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/semi_pm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Development Time:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/embedded_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typeview"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/embedded_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Embedded"
+                android:textColor="@color/darkTextColor"
+                android:textSize="23sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/embedded_kloc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/embedded_text"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/embedded_kloc_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="KLOC"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/embedded_calculate"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@+id/embedded_kloc"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Calculate" />
+
+
+            <View
+                android:id="@+id/embedded_end_view"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_below="@+id/embedded_calculate"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/embedded_results"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/embedded_end_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Results"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/embedded_pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/embedded_results"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Persons-Month:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/embedded_dt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/embedded_pm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Development Time:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".estimation_techniques.Fpa">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_fpa"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="#ffba60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/PopupOverlay" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_finish"
+        android:layout_below="@+id/toolbar_fpa">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/ufp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Unadjusted function point (UFP)"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="23sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/external_inputs_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ufp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <TextView
+                        android:id="@+id/external_inputs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="External Inputs (EI)"
+                        android:textColor="@color/darkTextColor"
+                        android:textSize="23sp" />
+
+
+                    <TextView
+                        android:id="@+id/howmany1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/external_inputs"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="How many are ?"
+                        android:textColor="@color/dashboard_subtitle"
+                        android:textSize="20sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_inputs_low"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_inputs_data_low"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Low"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_inputs_average"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toEndOf="@+id/total_external_inputs_low">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_inputs_data_average"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Average"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_inputs_high"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toEndOf="@+id/total_external_inputs_average">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_inputs_data_high"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="High"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/SilverBackground" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/external_outputs_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/external_inputs_card">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+
+                    <TextView
+                        android:id="@+id/external_outputs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="External Outputs (EO)"
+                        android:textColor="@color/darkTextColor"
+                        android:textSize="23sp" />
+
+                    <TextView
+                        android:id="@+id/howmany2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/external_outputs"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="How many are ?"
+                        android:textColor="@color/dashboard_subtitle"
+                        android:textSize="20sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_outputs_low"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany2"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_outputs_data_low"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Low"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_outputs_average"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany2"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toEndOf="@+id/total_external_outputs_low">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_outputs_data_average"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Average"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_outputs_high"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany2"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toEndOf="@+id/total_external_outputs_average">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_outputs_data_high"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="High"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/SilverBackground" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/external_inquiries_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/external_outputs_card">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+
+                    <TextView
+                        android:id="@+id/external_inquiries"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="External Inquiries (EQ)"
+                        android:textColor="@color/darkTextColor"
+                        android:textSize="23sp" />
+
+                    <TextView
+                        android:id="@+id/howmany3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/external_inquiries"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="How many are ?"
+                        android:textColor="@color/dashboard_subtitle"
+                        android:textSize="20sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_inquiries_low"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany3"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_inquiries_data_low"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Low"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_inquiries_average"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany3"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toEndOf="@+id/total_external_inquiries_low">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_inquiries_data_average"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Average"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_inquiries_high"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany3"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toEndOf="@+id/total_external_inquiries_average">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_inquiries_data_high"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="High"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/SilverBackground" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/internal_files_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/external_inquiries_card">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+
+                    <TextView
+                        android:id="@+id/internal_files"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="Internal Files (ILF)"
+                        android:textColor="@color/darkTextColor"
+                        android:textSize="23sp" />
+
+                    <TextView
+                        android:id="@+id/howmany4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/internal_files"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="How many are ?"
+                        android:textColor="@color/dashboard_subtitle"
+                        android:textSize="20sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_internal_files_low"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany4"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_internal_files_data_low"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Low"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_internal_files_average"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany4"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toEndOf="@+id/total_internal_files_low">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_internal_files_data_average"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Average"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_internal_files_high"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany4"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_toEndOf="@+id/total_internal_files_average">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_internal_files_data_high"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="High"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/SilverBackground" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/external_interfaces_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/internal_files_card">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+
+                    <TextView
+                        android:id="@+id/external_interfaces"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="External Interfaces (EIF)"
+                        android:textColor="@color/darkTextColor"
+                        android:textSize="23sp" />
+
+                    <TextView
+                        android:id="@+id/howmany5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/external_interfaces"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/bariol_bold"
+                        android:text="How many are ?"
+                        android:textColor="@color/dashboard_subtitle"
+                        android:textSize="20sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_interfaces_low"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany5"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_interfaces_data_low"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Low"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_interfaces_average"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany5"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toEndOf="@+id/total_external_interfaces_low">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_interfaces_data_average"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Average"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/total_external_interfaces_high"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/howmany5"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_toEndOf="@+id/total_external_interfaces_average">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/total_external_interfaces_data_high"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="High"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/SilverBackground" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_finish"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:text="Next" />
+
+</RelativeLayout>

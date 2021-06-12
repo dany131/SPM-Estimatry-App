@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".estimation_techniques.Details">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_details"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="#ffba60"
+        app:popupTheme="@style/PopupOverlay" />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_details"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bariol_bold"
+        android:text="Details"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="23sp" />
+
+    <View
+        android:id="@+id/detailsview"
+        android:layout_width="300dp"
+        android:layout_height="1.5dp"
+        android:layout_below="@id/details"
+        android:layout_centerHorizontal="true"
+        android:background="@color/SilverBackground" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/detailsview"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/details_cocomo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Cocomo"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/details_cocomo_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_cocomo"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="Cocomo (Constructive Cost Model) is a regression model based on LOC, i.e number of Lines of Code. It is a procedural cost estimate model for software projects and often used as a process of reliably predicting the various parameters associated with making a project such as size, effort, cost, time and quality. It was proposed by Barry Boehm in 1970 and is based on the study of 63 projects, which make it one of the best-documented models."
+                android:textColor="@color/darkTextColor"
+                android:textSize="17sp" />
+
+            <View
+                android:id="@+id/details_cocomo_end_view"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@id/details_cocomo_data"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/details_cocomo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_cocomo_end_view"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="Cocomo II"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/details_cocomo2_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_cocomo2"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="COCOMO-II is the revised version of the original Cocomo (Constructive Cost Model) and is developed at University of Southern California. It is the model that allows one to estimate the cost, effort and schedule when planning a new software development activity"
+                android:textColor="@color/darkTextColor"
+                android:textSize="17sp" />
+
+            <View
+                android:id="@+id/details_cocomo2_end_view"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@id/details_cocomo2_data"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/details_fpa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_cocomo2_end_view"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="FPA"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/details_fpa_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_fpa"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="Function Point Analysis was initially developed by Allan J. Albercht in 1979 at IBM and it has been further modified by the International Function Point Users Group (IFPUG).\nFPA provides standardized method to functionally size the software work product. This work product is the output of software new development and improvement projects for subsequent releases. It is the software which is relocated to the production application at project implementation. It measures functionality from the users point of view i.e. on the basis of what the user requests and receives in return.\nFunction Point Analysis (FPA) is a method or set of rules of Functional Size Measurement. It assesses the functionality delivered to its users, based on the user’s external view of the functional requirements. It measures the logical view of an application not the physically implemented view or the internal technical view."
+                android:textColor="@color/darkTextColor"
+                android:textSize="17sp" />
+
+            <View
+                android:id="@+id/details_fpa_end_view"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@id/details_fpa_data"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/details_slim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_fpa_end_view"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="SLIM"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/details_slim_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_slim"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="Putnam's [Putnam 78] SLIM is one of the first algorithmic cost model. It is based on the Norden/Rayleigh function and generaly known as a macro estimation model ( It is for large projects ). SLIM enables a software cost estimator to perform the following functions:\nCalibration Fine tuning the model to represent the local software development environment by interpreting a historical database of past projects.\nBuild an information model of the software system, collecting software characteristics, personal attributes, computer attributes etc.\nSoftware sizing SLIM uses an automated version of the lines of code (LOC) costing technique."
+                android:textColor="@color/darkTextColor"
+                android:textSize="17sp" />
+
+            <View
+                android:id="@+id/details_slim_end_view"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@id/details_slim_data"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@color/SilverBackground" />
+
+            <TextView
+                android:id="@+id/details_ucp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_slim_end_view"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_bold"
+                android:text="UCP"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/details_ucp_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_ucp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="Use case points (UCP or UCPs) is a software estimation technique used to forecast the software size for software development projects. UCP is used when the Unified Modeling Language (UML) and Rational Unified Process (RUP) methodologies are being used for the software design and development."
+                android:textColor="@color/darkTextColor"
+                android:textSize="17sp" />
+
+            <View
+                android:id="@+id/details_ucp_view"
+                android:layout_width="200dp"
+                android:layout_height="1.5dp"
+                android:layout_below="@id/details_ucp_data"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@color/SilverBackground" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

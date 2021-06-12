@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.estimatry.MainActivity"
+        android:label="Home"
+        tools:layout="@layout/activity_main">
+
+        <action
+            android:id="@+id/home_carspec"
+            app:destination="@+id/carspicification" />
+
+        <action
+            android:id="@+id/home_browsemarket"
+            app:destination="@+id/browsemarket_frag" />
+
+        <action
+            android:id="@+id/home_viewallcategories"
+            app:destination="@+id/viewall_categories_frag" />
+
+        <action
+            android:id="@+id/home_seeall_generalfeaturedads"
+            app:destination="@+id/seelall_generalfeaturedads_frag" />
+
+        <action
+            android:id="@+id/home_to_cocomo"
+            app:destination="@id/cocomo"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/cocomo"
+        android:name="com.example.estimatry.estimation_techniques.Cocomo"
+        android:label="COCOMO"
+        tools:layout="@layout/activity_cocomo">
+
+
+    </fragment>
+
+</navigation>
